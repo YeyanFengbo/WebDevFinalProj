@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Organic Food Market</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="georgia-font-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Organic Food Market">
+                    <span>Organic Food Market</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="index.html">Shop</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-right">
+                    <a href="#">Log In</a>
+                    <a href="cart.html">Cart (<span id="cart-count-right">0</span>)</a>
+                    <a href="#" id="search-icon"><img src="images/search-icon.png" alt="Search"></a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Modal -->
+        <div id="search-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Search our store</h2>
+                <input type="text" id="search-input" placeholder="Type here to search...">
+                <button id="search-button">Search</button>
+            </div>
+        </div>
+
+        <!-- Shop Section -->
+        <section class="shop-container">
+            <div class="filters">
+                <div class="filter-section">
+                    <h3 class="filter-title">Availability <span class="toggle-symbol">-</span></h3>
+                    <div class="filter-content">
+                        <label>
+                            <input type="radio" name="availability" value="in-stock">
+                            In stock
+                        </label>
+                        <label>
+                            <input type="radio" name="availability" value="out-of-stock">
+                            Out of stock
+                        </label>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <h3 class="filter-title">Product type <span class="toggle-symbol">-</span></h3>
+                    <div class="filter-content">
+                        <label>
+                            <input type="checkbox" name="product-type" value="fruit">
+                            Fruit
+                        </label>
+                        <label>
+                            <input type="checkbox" name="product-type" value="vegetable">
+                            Vegetable
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="featured-products">
+                <h2>Featured Products</h2>
+                <div class="products" id="products-container">
+                    <!-- Product cards will be added here by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 Organic Food Market</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
