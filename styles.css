@@ -44,6 +44,7 @@ header {
     color: black;
 }
 
+/* For adding text next to logo on nav*/
 .logo a span {
     font-size: 16px; /* Adjust as needed */
     font-weight: bold;
@@ -90,7 +91,7 @@ nav ul li a:hover::after {
 .nav-right {
     display: flex;
     align-items: center;
-    margin-right: -150px;
+    margin-right: -100px;
 }
 
 .nav-right a {
@@ -230,7 +231,6 @@ nav ul li a:hover::after {
     margin-bottom: 10px;
     font-size: 14px;
 }
-
 
 /* Shop Section Styles */
 /* Added these styles for the shop section */
@@ -758,17 +758,18 @@ footer {
 
 #empty-cart-message {
     text-align: center;
-    margin: 20px 0;
+    margin: 60px 0;
 }
 
 #empty-cart-message img {
-    width: 150px;
+    width: 250px;
+    height: 135px;
     margin: 20px auto; /* Center the image horizontally */
     display: block; /* Make sure the image is a block element */
 }
 
 .shop-now-button {
-    background-color: #6b4f32;
+    background-color: #149e0a;
     color: white;
     padding: 10px 20px;
     text-decoration: none;

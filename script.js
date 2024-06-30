@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    //PRODUCT SECTION (ADD PRODUCTS)
     const products = [
         {
             name: "Organic Apple",
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "images/banana.jpg",
             type: "fruit",
             availability: "out-of-stock"
-        }
+        },
     ];
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
