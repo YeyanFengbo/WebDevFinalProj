@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Organic Food Market</title>
+    <title>Shop - Organic Food Market</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,8 +17,8 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="index.html">Shop</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -40,11 +40,38 @@
             </div>
         </div>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <img src="images/home.jpg" alt="Organic Food Market">
+        <!-- Shop Section -->
+        <section class="shop-container">
+            <div class="filters">
+                <div class="filter-section">
+                    <h3>Availability <span id="availability-toggle" class="toggle">+</span></h3>
+                    <div id="availability-options" class="filter-options">
+                        <label>
+                            <input type="radio" name="availability" value="in-stock"> In stock
+                        </label>
+                        <label>
+                            <input type="radio" name="availability" value="out-of-stock"> Out of stock
+                        </label>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <h3>Product type <span id="product-type-toggle" class="toggle">+</span></h3>
+                    <div id="product-type-options" class="filter-options">
+                        <label>
+                            <input type="checkbox" name="product-type" value="fruits"> Fruits
+                        </label>
+                        <label>
+                            <input type="checkbox" name="product-type" value="vegetables"> Vegetables
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-products">
+                <h2>Featured Products</h2>
+                <div id="products-container" class="products"></div>
+            </div>
         </section>
-        
+
         <!-- Footer Section -->
         <footer>
             <p>&copy; 2024 Organic Food Market</p>
