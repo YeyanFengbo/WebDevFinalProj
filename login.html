@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            position: relative; /* Added for positioning the back button */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .toggle-link {
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Styling for back button */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">Back</a> <!-- Link to index.html -->
+        <h2>Login</h2>
+        <form id="loginForm" action="/login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="button" onclick="submitForm('loginForm')">Login</button>
+        </form>
+
+        <h2>Registration</h2>
+        <form id="registerForm" action="/register" method="POST" class="hidden">
+            <label for="reg_username">Username:</label>
+            <input type="text" id="reg_username" name="username" required><br><br>
+            <label for="reg_password">Password:</label>
+            <input type="password" id="reg_password" name="password" required><br><br>
+            <button type="button" onclick="submitForm('registerForm')">Register</button>
+        </form>
+
+        <p id="toggleForm"><span id="notRegisteredText">Not registered yet?</span> <span id="toggleRegister" class="toggle-link">Register here</span></p>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function submitForm(formId) {
+            const form = document.getElementById(formId);
+            const username = form.querySelector('input[name="username"]').value;
+            const password = form.querySelector('input[name="password"]').value;
+
+            fetch(form.getAttribute('action'), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('message').textContent = data;
+                // Reset form fields on successful submission (optional)
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('message').textContent = 'Error. Please try again later.';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleRegisterLink = document.getElementById('toggleRegister');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const notRegisteredText = document.getElementById('notRegisteredText');
+
+            toggleRegisterLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                loginForm.classList.toggle('hidden');
+                registerForm.classList.toggle('hidden');
+                
+                if (loginForm.classList.contains('hidden')) {
+                    notRegisteredText.textContent = 'Already registered?';
+                    toggleRegisterLink.textContent = 'Login here';
+                } else {
+                    notRegisteredText.textContent = 'Not registered yet?';
+                    toggleRegisterLink.textContent = 'Register here';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
