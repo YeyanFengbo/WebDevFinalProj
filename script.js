@@ -217,20 +217,106 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchIcon = document.getElementById('search-icon');
     const searchModal = document.getElementById('search-modal');
     const closeModal = document.querySelector('.close');
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+    const searchResults = document.createElement('div');
+    searchResults.id = 'search-results';
+    searchModal.appendChild(searchResults);
 
+    // Search Modal
     searchIcon.addEventListener('click', function() {
         searchModal.style.display = 'block';
     });
 
     closeModal.addEventListener('click', function() {
         searchModal.style.display = 'none';
+        searchInput.value = ''; // Clear search input when modal is closed
+        searchResults.innerHTML = ''; // Clear search results when modal is closed
     });
 
     window.addEventListener('click', function(event) {
         if (event.target == searchModal) {
             searchModal.style.display = 'none';
+            searchInput.value = ''; // Clear search input when modal is closed
+            searchResults.innerHTML = ''; // Clear search results when modal is closed
         }
     });
+
+    // Search functionality
+    searchButton.addEventListener('click', function() {
+        const query = searchInput.value.toLowerCase();
+        if (query.trim() === '') {
+            searchResults.innerHTML = ''; // Clear search results if input is empty
+            return;
+        }
+        const filteredProducts = products.filter(product =>
+            product.name.toLowerCase().includes(query) ||
+            product.type.toLowerCase().includes(query)
+        );
+        displaySearchResults(filteredProducts);
+    });
+
+    function displaySearchResults(results) {
+        searchResults.innerHTML = '';
+        if (results.length > 0) {
+            results.forEach(product => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                resultItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="result-info">
+                        <h3>${product.name}</h3>
+                        <p>$${product.price.toFixed(2)}</p>
+                    </div>
+                    <div class="quantity-and-cart">
+                        <div class="quantity-container">
+                            <span class="quantity-label">Quantity</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" data-action="decrease">-</button>
+                                <input type="text" value="1" class="product-quantity">
+                                <button class="quantity-btn" data-action="increase">+</button>
+                            </div>
+                        </div>
+                        <button class="add-to-cart" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}">Add to Cart</button>
+                    </div>
+                `;
+                searchResults.appendChild(resultItem);
+            });
+
+            searchResults.addEventListener('click', function(event) {
+                if (event.target.classList.contains('add-to-cart')) {
+                    const productCard = event.target.closest('.search-result-item');
+                    const name = event.target.getAttribute('data-name');
+                    const price = parseFloat(event.target.getAttribute('data-price'));
+                    const image = event.target.getAttribute('data-image');
+                    const quantity = parseInt(productCard.querySelector('.product-quantity').value);
+                    const existingItemIndex = cart.findIndex(item => item.name === name);
+
+                    if (existingItemIndex !== -1) {
+                        cart[existingItemIndex].quantity += quantity;
+                    } else {
+                        cart.push({ name, price, image, quantity });
+                    }
+
+                    saveCart();
+                    updateCartCount();
+                    updateCartView();
+                }
+
+                if (event.target.classList.contains('quantity-btn')) {
+                    const input = event.target.parentNode.querySelector('.product-quantity');
+                    let currentQuantity = parseInt(input.value);
+                    if (event.target.getAttribute('data-action') === 'increase') {
+                        input.value = currentQuantity + 1;
+                    } else if (event.target.getAttribute('data-action') === 'decrease' && currentQuantity > 1) {
+                        input.value = currentQuantity - 1;
+                    }
+                }
+            });
+        } else {
+            searchResults.innerHTML = '<p>No results found.</p>';
+        }
+    }
 
     // Filter functionality
     const availabilityInputs = document.querySelectorAll('input[name="availability"]');

@@ -795,7 +795,162 @@ footer {
     font-size: 36px;
 }
 
+/* Search Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+    font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content input {
+    width: calc(100% - 40px); /* Adjust width according to the padding */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.modal-content button {
+    background-color: #6b4f32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #5a3e27;
+}
+
+/* Search Results Styles */
+#search-results {
+    margin-top: 20px;
+    text-align: left; /* Align text to the left */
+    width: calc(50% - 225px); /* Adjust width according to the padding */
+    margin: 0 auto; /* Center the results container */
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Add this to space out the items */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.search-result-item img {
+    width: 90px;
+    height: 75px;
+    margin-right: 10px;
+}
+
+.search-result-item .result-info {
+    text-align: left;
+    flex: 1; /* Add this to make the result-info take up the remaining space */
+}
+
+.search-result-item h3 {
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.search-result-item p {
+    margin: 5px 0 0;
+    font-size: 17px;
+}
+
+.quantity-and-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align items to the right */
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin to separate from the Add to Cart button */
+}
+
+.quantity-label {
+    font-size: 14px; /* Increase font size of the word "Quantity" */
+    font-weight: bold; /* Make the word "Quantity" bold */
+    margin-right: 0px; /* Add some space to the right */
+}
+
+.quantity-btn {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 5px;
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-quantity {
+    width: 34px;
+    text-align: center;
+    border: 1px solid #ddd;
+    height: 34px;
+    margin: 0 5px;
+}
+
+.add-to-cart {
+    background-color: #6b4f32;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.add-to-cart:hover {
+    background-color: #5a3e27;
+}
+
 /* Apply Courier New font to contact page */
 .courier-new-font {
     font-family: "Courier New", Courier, monospace;
 }
+
