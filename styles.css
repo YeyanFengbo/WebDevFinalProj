@@ -811,6 +811,7 @@ footer {
     font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
 }
 
+
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto; /* 15% from the top and centered */
@@ -819,6 +820,8 @@ footer {
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 500px;
     text-align: center;
+    max-height: 80vh; /* Limit the height of the modal content */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
 }
 
 .close {
@@ -862,6 +865,8 @@ footer {
     text-align: left; /* Align text to the left */
     width: calc(50% - 225px); /* Adjust width according to the padding */
     margin: 0 auto; /* Center the results container */
+    max-height: 40vh; /* Limit the height of the search results container */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .search-result-item {
@@ -949,6 +954,10 @@ footer {
     background-color: #5a3e27;
 }
 
+/* Apply Courier New font to contact page */
+.courier-new-font {
+    font-family: "Courier New", Courier, monospace;
+}
 /* Apply Courier New font to contact page */
 .courier-new-font {
     font-family: "Courier New", Courier, monospace;

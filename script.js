@@ -226,12 +226,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Search Modal
     searchIcon.addEventListener('click', function() {
         searchModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Disable background scrolling
     });
 
     closeModal.addEventListener('click', function() {
         searchModal.style.display = 'none';
         searchInput.value = ''; // Clear search input when modal is closed
         searchResults.innerHTML = ''; // Clear search results when modal is closed
+        document.body.style.overflow = 'auto'; // Re-enable background scrolling
     });
 
     window.addEventListener('click', function(event) {
@@ -239,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
             searchModal.style.display = 'none';
             searchInput.value = ''; // Clear search input when modal is closed
             searchResults.innerHTML = ''; // Clear search results when modal is closed
+            document.body.style.overflow = 'auto'; // Re-enable background scrolling
         }
     });
 
