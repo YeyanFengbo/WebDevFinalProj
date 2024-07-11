@@ -43,6 +43,69 @@ document.addEventListener('DOMContentLoaded', () => {
             type: "fruit",
             availability: "in-stock"
         },
+        {
+            name: "Organic Mango",
+            price: 1.59,
+            image: "images/mango.jfif",
+            type: "fruit",
+            availability: "out-of-stock"
+        },
+        {
+            name: "Organic Honey",
+            price: 7.99,
+            image: "images/honey.jfif",
+            type: "Pantry",
+            availability: "in-stock"
+        },
+        {
+            name: "Organic Mayonnaise",
+            price: 6.49,
+            image: "images/mayo.jfif",
+            type: "Pantry",
+            availability: "in-stock"
+        },
+        {
+            name: "Organic Mustard",
+            price: 3.89,
+            image: "images/mustard.jfif",
+            type: "Pantry",
+            availability: "in-stock"
+        },
+        {
+            name: "Organic Ketchup",
+            price: 3.89,
+            image: "images/ketchup.jfif",
+            type: "Pantry",
+            availability: "out-of-stock"
+        },
+        {
+            name: "Organic Eggs",
+            price: 8.49,
+            image: "images/eggs.jfif",
+            type: "Dairy",
+            availability: "in-stock"
+        },
+        {
+            name: "Organic Milk",
+            price: 4.49,
+            image: "images/milk.jfif",
+            type: "Dairy",
+            availability: "in-stock"
+        },
+        {
+            name: "Organic Cheddar Cheese",
+            price: 3.49,
+            image: "images/cheese.jfif",
+            type: "Dairy",
+            availability: "out-of-stock"
+        },
+        {
+            name: "Organic Jack Cheese",
+            price: 3.99,
+            image: "images/jackcheese.jfif",
+            type: "Dairy",
+            availability: "in-stock"
+        },
     ];
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -226,14 +289,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Search Modal
     searchIcon.addEventListener('click', function() {
         searchModal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Disable background scrolling
     });
 
     closeModal.addEventListener('click', function() {
         searchModal.style.display = 'none';
         searchInput.value = ''; // Clear search input when modal is closed
         searchResults.innerHTML = ''; // Clear search results when modal is closed
-        document.body.style.overflow = 'auto'; // Re-enable background scrolling
     });
 
     window.addEventListener('click', function(event) {
@@ -241,7 +302,6 @@ document.addEventListener('DOMContentLoaded', () => {
             searchModal.style.display = 'none';
             searchInput.value = ''; // Clear search input when modal is closed
             searchResults.innerHTML = ''; // Clear search results when modal is closed
-            document.body.style.overflow = 'auto'; // Re-enable background scrolling
         }
     });
 
@@ -273,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="quantity-and-cart">
                         <div class="quantity-container">
-                            <span class="search-quantity-label">Quantity</span>
+                            <span class="quantity-label">Quantity</span>
                             <div class="quantity-controls">
                                 <button class="quantity-btn" data-action="decrease">-</button>
                                 <input type="text" value="1" class="product-quantity">
