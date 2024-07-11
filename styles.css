@@ -954,10 +954,15 @@ footer {
     background-color: #5a3e27;
 }
 
-/* Apply Courier New font to contact page */
-.courier-new-font {
-    font-family: "Courier New", Courier, monospace;
+/* No Results Styles */
+.no-results {
+    font-size: 25px;
+    color: #000000; /* Red color for visibility */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Centered text */
+    margin-top: 20px; /* Margin for spacing */
 }
+
 /* Apply Courier New font to contact page */
 .courier-new-font {
     font-family: "Courier New", Courier, monospace;

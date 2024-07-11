@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         } else {
-            searchResults.innerHTML = '<p>No results found.</p>';
+            searchResults.innerHTML = '<p class="no-results">No results found.</p>';
         }
     }
 
