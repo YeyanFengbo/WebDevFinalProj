@@ -22,6 +22,27 @@ document.addEventListener('DOMContentLoaded', () => {
             type: "fruit",
             availability: "out-of-stock"
         },
+        {
+            name: "Naked strawberry banana",
+            price: 8,
+            image: "images/Naked.jfif",
+            type: "Beverage",
+            availability: "out-of-stock"
+        },
+        {
+            name: "Naked glorious green",
+            price: 8,
+            image: "images/Naked2.webp",
+            type: "Beverage",
+            availability: "in-stock"
+        },
+        {
+            name: "Grape",
+            price: 1.32,
+            image: "images/grape.jpeg",
+            type: "fruit",
+            availability: "in-stock"
+        },
     ];
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];

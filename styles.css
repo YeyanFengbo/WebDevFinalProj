@@ -782,6 +782,18 @@ footer {
     background-color: #5a3e27;
 }
 
+.privacy-section {
+    padding: 80px 120px;
+    background-color: #f9f9f9;
+    text-align: center;
+    flex: 1;
+    font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+}
+
+.privacy-section h2 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
 
 /* Apply Courier New font to contact page */
 .courier-new-font {
