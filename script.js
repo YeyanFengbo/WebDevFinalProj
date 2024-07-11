@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="quantity-and-cart">
                         <div class="quantity-container">
-                            <span class="quantity-label">Quantity</span>
+                            <span class="search-quantity-label">Quantity</span>
                             <div class="quantity-controls">
                                 <button class="quantity-btn" data-action="decrease">-</button>
                                 <input type="text" value="1" class="product-quantity">

@@ -909,7 +909,7 @@ footer {
     margin-bottom: 10px; /* Add margin to separate from the Add to Cart button */
 }
 
-.quantity-label {
+.search-quantity-label {
     font-size: 14px; /* Increase font size of the word "Quantity" */
     font-weight: bold; /* Make the word "Quantity" bold */
     margin-right: 0px; /* Add some space to the right */
